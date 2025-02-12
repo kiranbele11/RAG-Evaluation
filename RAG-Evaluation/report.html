@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+<style>
+    body{
+  background: #18181B;
+}
+
+.main{
+  font-family: "Noto Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #FDFDFD;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+h3 {
+  font-size: 1.5rem;
+  background: #0c087c;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid #6b7280;}
+
+.extended-title{
+  width:100%;
+}
+
+#gsk-overview{
+  display:flex;
+}
+
+h4 {
+  font-size: 1rem;
+  background: #27272A;
+  padding: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #6b7280;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 3px;
+  color:#000000;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header > * {
+  margin-inline: 20px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  padding:10px;
+  border: 1px solid #27272A;
+}
+
+.flex-row>div {
+  flex: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+progress[value] {
+  --background: #6D6D6D;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 4px;
+  margin: 0 10px;
+  border-radius: 10em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-bar {
+  border-radius: 10em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+progress[value]::-moz-progress-bar {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin: 20px 0;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #27272A;
+  background-color: #27272A;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffffff;
+  font-size:1.2rem;
+}
+
+.tab div {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.tab button:hover {
+  background-color: #18181B;
+}
+
+.tab-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom:-5px;
+}
+
+.tab button.active {
+  background-color: #18181B;
+  border-top: 1px solid #6b7280;
+  border-bottom: 1px solid #18181B;
+  border-left: 1px solid #6b7280;
+  border-right: 1px solid #6b7280;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  background: #18181B;
+  border: 1px solid #27272A;
+  border-top: 1px solid #6b7280;
+  margin-top: -2px;
+}
+
+#gsk-advice {
+  display: flex;
+  justify-content: center;
+}
+
+#gsk-metrics{
+  width:100%;
+}
+
+#recommendation {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #e1ce86;
+  color: #27272A;
+  width:95%;
+  box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 #000000;
+  font-size: 12pt;
+}
+
+.separator {
+  margin: 20px 0;
+}
+
+.separator-border {
+  margin: 20px 0;
+  border-bottom: 1px solid #6b7280;
+}
+
+#gsk-rag{
+  margin: 32px 28px;
+  padding: 12px 24px;
+  background-color: #111516;
+}
+
+.section-container {
+  margin-bottom: 32px;
+}
+
+  .components-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    gap: 0 32px;
+  }
+
+    .component-card {
+      background-color: #14191B;
+      border-radius: 16px;
+      padding: 28px 32px 32px 32px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      margin-top: 32px;
+      flex-grow: 1;
+    }
+
+    .component-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #B1B1B1;
+      padding-bottom: 8px;
+    }
+
+    .component-value {
+      font-size: 32px;
+      font-weight: 500;
+      padding-bottom: 12px;
+    }
+      
+      .text-green {
+        color: #04B543;
+      }
+      
+      .text-orange {
+        color: #E76E0F;
+      }
+      
+      .text-red {
+        color: #EA3829;
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #464646;
+        color: #E6E6E6;
+        text-align: center;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        top: 150%;
+        left: 50%;
+        margin-left: -60px;
+        font-size: 12px;
+        padding: 12px;
+      }
+      
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+      
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+      }
+
+    .overall-card {
+      background-color: #026836;
+      border-radius: 16px;
+      padding: 28px 32px 32px 32px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 32px;
+      flex-grow: 1;
+    }
+  
+    .overall-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #E6E6E6;
+      padding: 14px 0 8px 0;
+      text-transform: uppercase;
+     }
+  
+    .overall-value {
+      font-size: 32px;
+      font-weight: 500;
+      padding-bottom: 12px;
+      color: #E6E6E6;
+    }
+
+.section-title {
+  font-size: 12px;
+  color: #B1B1B1;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.section-content {
+  color: #E6E6E6;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.section-card {
+  background-color: #14191B;
+  border-radius: 16px;
+  padding: 28px 32px 32px 32px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.correctness-indicator{
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 16pt;
+  box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 #000000;
+  text-align: center;
+}
+
+.metric-title{
+  margin: -2px;
+  border-bottom: none;
+}
+
+.hist-row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-around;
+  width: 85%;
+}
+
+.hist-row>div {
+  flex: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.tab-row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#component-table{
+  width:50%;
+  margin-top: 10px;
+}
+
+.green{
+  background-color: #0a980a;
+}
+
+.orange {
+  background-color: #e5b62a;
+}
+
+.red {
+  background-color: #ba0e0e;
+}
+
+.progress-green {
+  --color: #04B543;
+}
+
+.progress-orange {
+  --color: #E76E0F;
+}
+
+.progress-red {
+  --color: #EA3829;
+}
+
+.corr-plot{
+  flex: 1;
+  padding-left: 2%;
+}
+
+.tooltip-text {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+  z-index: 1;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  color: white;
+  font-size: 12px;
+  background-color: #2d3d4c;
+  border-radius: 10px;
+  padding: 10px 15px 10px 15px;
+}
+
+#fade {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+#delay {
+  opacity: 0;
+  transition: opacity 0.2s;
+  transition-delay: 1s;
+}
+
+td {
+  position: relative;
+}
+
+tr:hover .tooltip-text {
+  display: block;
+  visibility: visible;
+}
+
+.tr:hover #fade {
+  opacity: 1;
+}
+
+.tr:hover #delay {
+  opacity: 1;
+}
+
+.callout {
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  background: #D9EDF9;
+  border: 3px solid #0088D1;
+  color: #272eb5;
+  position: relative;
+  max-width: 40rem;
+  border-radius: 10px;
+  margin-top: 10%;
+  font-size: 11pt;
+}
+
+.callout-icon {
+  content: "";
+
+  /* SVG via a data URI! */
+  background-size: cover;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  position: absolute;
+  left: 0.9rem;
+  top: 1.1rem;
+}
+
+.callout-icon svg{
+  fill: #016ca7;
+}
+.callout p+p {
+  margin-top: 1em;
+}
+
+.callout a {
+  color: #272eb5;
+  font-weight: bold;
+}
+
+#gsk-logo {
+  padding-top: 10px;
+}
+</style>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.4.min.js" integrity="sha384-5QIrjQuyo4I/x6DK/Sau33lcA3hT2TCZGr9vbk+2ebd7Da6FnR1amdM+9B5xOrSf" crossorigin="anonymous"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.3.4.min.js" integrity="sha384-tXTWPp/bAKa+K9RPuXh7DNvye0Mv+P+6y4rAMVy+pWapsnXg9UG7g20WZ0N4i28A" crossorigin="anonymous"></script>
+
+
+
+
+
+<div class="main">
+    <div id="gsk-rag" class="dark:text-white dark:bg-zinc-800 rounded border border-gray-500">
+        <div class="header border-b border-b-gray-500">
+            
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" viewBox="0 0 30 15" fill="none" id="gsk-logo">
+                    <path fill="#fff" fill-rule="evenodd"
+                        d="M22.504 1.549a4.196 4.196 0 0 1 2.573-.887v.002a3.783 3.783 0 0 1 2.706 1.086 3.783 3.783 0 0 1 1.126 2.69 3.771 3.771 0 0 1-1.126 2.69 3.77 3.77 0 0 1-2.706 1.085l-4.794.011-2.533 3.467L8.203 15l2.881-3.335a9.829 9.829 0 0 1-4.663-1.68H3.185L0 7.163h3.934C4.263 3.165 8.187 0 12.96 0c2.24 0 4.489.696 6.175 1.909a7.423 7.423 0 0 1 1.882 1.919 4.194 4.194 0 0 1 1.487-2.28ZM7.05 3.249l3.91 3.915h1.505L7.89 2.584a7.773 7.773 0 0 0-.84.665Zm4.079-2.008 5.923 5.923h1.503l-6.086-6.087c-.45.023-.898.078-1.34.164ZM4.574 8.226h-1.77l.784.693h1.584a8.454 8.454 0 0 1-.598-.693Zm9.479 0H5.984c1.469 1.477 3.656 2.377 5.977 2.422l2.092-2.422Zm-2.458 4.472 5.492-1.902 1.878-2.569h-3.508l-3.862 4.47Zm10.361-5.552h3.265a2.714 2.714 0 0 0 1.747-4.648 2.711 2.711 0 0 0-1.888-.773 3.127 3.127 0 0 0-3.123 3.124v2.297Zm3.659-3.73a.677.677 0 1 1-.134 1.348.677.677 0 0 1 .134-1.348Z"
+                        clip-rule="evenodd" />
+                </svg>
+            <h1>RAG Evaluation Toolkit</h1>
+        </div>
+        
+        <div class="section-container">
+            <div class="components-container">
+                
+                <div class="component-card">
+                    <div class="component-title">GENERATOR</div>
+                    <div class="component-value tooltip  text-green ">
+                        80.0%
+                            <span class="tooltiptext" id="fade">The Generator is the LLM inside the RAG to generate the answers.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=80.0 class=" progress-green ">80.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">RETRIEVER</div>
+                    <div class="component-value tooltip  text-green ">
+                        75.0%
+                            <span class="tooltiptext" id="fade">The Retriever fetches relevant documents from the knowledge base according to a user query.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=75.0 class=" progress-green ">75.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">REWRITER</div>
+                    <div class="component-value tooltip  text-orange ">
+                        56.67%
+                            <span class="tooltiptext" id="fade">The Rewriter modifies the user query to match a predefined format or to include the context from the chat history.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=56.666666666666664 class=" progress-orange ">56.67%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">ROUTING</div>
+                    <div class="component-value tooltip  text-green ">
+                        100.0%
+                            <span class="tooltiptext" id="fade">The Router filters the query of the user based on his intentions (intentions detection).</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=100.0 class=" progress-green ">100.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">KNOWLEDGE_BASE</div>
+                    <div class="component-value tooltip  text-green ">
+                        100.0%
+                            <span class="tooltiptext" id="fade">The knowledge base is the set of documents given to the RAG to generate the answers. Its scores is computed differently from the other components: it is the difference between the maximum and minimum correctness score across all the topics of the knowledge base.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=100.0 class=" progress-green ">100.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="overall-card">
+                    <div class="overall-title">Overall Correctness Score</div>
+                    <div class="overall-value">70%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">RECOMMENDATION</div>
+                <span class="section-content">Improve the Rewriter component to handle conversational questions more effectively, as it has the lowest score and thus is the most pressing issue. Additionally, ensure the Router component properly identifies conversational context to direct questions to the enhanced Rewriter.</span>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">CORRECTNESS BY TOPIC</div>
+                    <script type="text/javascript">
+        (function() {
+  const fn = function() {
+    Bokeh.safely(function() {
+      (function(root) {
+        function embed_document(root) {
+        const docs_json = '{"665ad741-fb79-4d73-a487-a03eb347ee24":{"version":"3.4.3","title":"Bokeh Application","roots":[{"type":"object","name":"Figure","id":"p1411","attributes":{"height":350,"width_policy":"max","x_range":{"type":"object","name":"DataRange1d","id":"p1413","attributes":{"start":0}},"y_range":{"type":"object","name":"FactorRange","id":"p1420","attributes":{"factors":["Others"]}},"x_scale":{"type":"object","name":"LinearScale","id":"p1421"},"y_scale":{"type":"object","name":"CategoricalScale","id":"p1422"},"title":{"type":"object","name":"Title","id":"p1418","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1440","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1408","attributes":{"selected":{"type":"object","name":"Selection","id":"p1409","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1410"},"data":{"type":"map","entries":[["correctness",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAACAUUA="},"shape":[1],"dtype":"float64","order":"little"}],["metadata_values",["Others"]],["colors",["#a50026"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1441","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1442"}}},"glyph":{"type":"object","name":"HBar","id":"p1437","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"fill_color":{"type":"value","value":"#14191B"}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1438","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#14191B"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1439","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#14191B"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1449","attributes":{"data_source":{"id":"p1408"},"view":{"type":"object","name":"CDSView","id":"p1450","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1451"}}},"glyph":{"type":"object","name":"HBar","id":"p1446","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1447","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1448","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1459","attributes":{"visible":false,"data_source":{"type":"object","name":"ColumnDataSource","id":"p1453","attributes":{"selected":{"type":"object","name":"Selection","id":"p1454","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1455"},"data":{"type":"map","entries":[["x",[0]],["y",[0]]]}}},"view":{"type":"object","name":"CDSView","id":"p1460","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1461"}}},"glyph":{"type":"object","name":"Line","id":"p1456","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_width":2,"line_dash":[6]}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1457","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_alpha":0.1,"line_width":2,"line_dash":[6]}},"muted_glyph":{"type":"object","name":"Line","id":"p1458","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_alpha":0.2,"line_width":2,"line_dash":[6]}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1419","attributes":{"tools":[{"type":"object","name":"HoverTool","id":"p1433","attributes":{"renderers":"auto","tooltips":[["topic","@metadata_values"],["Correctness","@correctness{0.00}"]]}}]}},"toolbar_location":null,"left":[{"type":"object","name":"CategoricalAxis","id":"p1428","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"p1429"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"p1430"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1431"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1423","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1424","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1425"},"axis_label":"Correctness (%)","axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1426"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1427","attributes":{"axis":{"id":"p1423"},"grid_line_color":"#E0E0E0","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1432","attributes":{"dimension":1,"axis":{"id":"p1428"},"grid_line_color":"#E0E0E0","grid_line_alpha":0.25}},{"type":"object","name":"Span","id":"p1452","attributes":{"location":70.0,"dimension":"height","line_color":"#EA3829","line_width":2,"line_dash":[6]}},{"type":"object","name":"Legend","id":"p1462","attributes":{"border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1463","attributes":{"label":{"type":"value","value":"Correctness on the entire Testset"},"renderers":[{"id":"p1459"}]}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}]}}';
+        const render_items = [{"docid":"665ad741-fb79-4d73-a487-a03eb347ee24","roots":{"p1411":"a311e429-c035-4dc9-beca-f338720a0e5d"},"root_ids":["p1411"]}];
+        root.Bokeh.embed.embed_items(docs_json, render_items);
+        }
+        if (root.Bokeh !== undefined) {
+          embed_document(root);
+        } else {
+          let attempts = 0;
+          const timer = setInterval(function(root) {
+            if (root.Bokeh !== undefined) {
+              clearInterval(timer);
+              embed_document(root);
+            } else {
+              attempts++;
+              if (attempts > 100) {
+                clearInterval(timer);
+                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+              }
+            }
+          }, 10, root)
+        }
+      })(window);
+    });
+  };
+  if (document.readyState != "loading") fn();
+  else document.addEventListener("DOMContentLoaded", fn);
+})();
+    </script>
+
+                <div id="a311e429-c035-4dc9-beca-f338720a0e5d" data-root-id="p1411" style="display: contents;"></div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">KNOWLEDGE BASE OVERVIEW</div>
+                    <script type="text/javascript">
+        (function() {
+  const fn = function() {
+    Bokeh.safely(function() {
+      (function(root) {
+        function embed_document(root) {
+        const docs_json = '{"a4de7740-5767-4d9d-9ffb-37fdbfc9989d":{"version":"3.4.3","title":"Bokeh Application","roots":[{"type":"object","name":"Tabs","id":"p1344","attributes":{"sizing_mode":"stretch_width","tabs":[{"type":"object","name":"TabPanel","id":"p1281","attributes":{"title":"Topic exploration","child":{"type":"object","name":"Figure","id":"p1236","attributes":{"sizing_mode":"stretch_width","x_range":{"type":"object","name":"Range1d","id":"p1245","attributes":{"start":-11.303438067436218,"end":-5.573691368103027}},"y_range":{"type":"object","name":"Range1d","id":"p1246","attributes":{"start":-20.537851333618164,"end":-15.850442886352539}},"x_scale":{"type":"object","name":"LinearScale","id":"p1247"},"y_scale":{"type":"object","name":"LinearScale","id":"p1248"},"title":{"type":"object","name":"Title","id":"p1243","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1276","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1233","attributes":{"selected":{"type":"object","name":"Selection","id":"p1234","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1235"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"L34TwTZyHsGKEQvBEwj1wN0r/sDItCDBC+UOwVZFIcGzEzLBT/MrwQ=="},"shape":[10],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"jsuSwW8OmsGNDZ7BrVqbwe/ok8FWYo7BHt+Iwa0NhcEFk4rBiOSXwQ=="},"shape":[10],"dtype":"float32","order":"little"}],["topic",["Others","Others","Others","Others","Others","Others","Others","Others","Others","Others"]],["id",[0,1,2,3,4,5,6,7,8,9]],["content",["Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems (That Don&#x27;t Suck)A live, interactive program that&#x27;ll help you build production-ready systems from the ground up.This program is for anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.This practical, hands-on course will teach you the skills you need for building p...","where you&#x27;ll learn from years of experience and real-world examples.Here is a summary of what makes this program unique:You&#x27;ll join 20+ hours of live classes to discuss the fundamental ideas of building systems that work in the real world.You&#x27;ll learn best practices to tackle the most significant challenges engineers face when building, evaluating, running, monitoring, and maintaining systems in production.You&#x27;ll get hands-on access and a complete walkthrough of the implementation of an end-to-e...","software for over 30 years in the industry.Day 1 - How To Start (Almost) Any ProjectIn this session, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project. You&#x27;ll learn how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.Day 2 - How To Build A Model (That Works)In this session, you&#x27;ll explore data cleaning and feature engin...","backtesting, invariance, and behavioral testing. You&#x27;ll learn how to frame evaluation metrics in the context of business goals and ensure models work in real-world scenarios. Aditionally, you&#x27;ll learn to prevent data leakages, test for fairness, perform error analysis, and work with imbalanced data.Day 4 - How To Serve Model Predictions (In A Clever Way)In this session, you&#x27;ll learn how to version and deploy models and deal with deployment tradeoffs. You&#x27;ll learn different strategies for serving...","drift. You&#x27;ll learn how to use adversarial validation and explore strategies for monitoring models in production. Finally, you&#x27;ll learn different techniques to build resilient models that adapt to distribution shifts.Day 6 - How To Build Continual Learning SystemsIn this session, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different ret...","to accommodate your needs.Office HoursEvery week, we&#x27;ll meet during office hours to answer any open questions, discuss relevant topics, and help you with any challenges you may be facing. This is also a great opportunity to connect with other students in your cohort, share insights, and talk about anything you are building or are passionate about.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one o...","are the prerequisites to succeed in the program:You are not afraid of writing code. We&#x27;ll use Python, but you&#x27;ll be fine if you have experience with any other language.You are familiar with basic machine learning terminology, like model training, evaluation metrics, and model inference. You don&#x27;t have to be an expert, but this won&#x27;t be an introductory class.You have a basic understanding of cloud services and how to build and deploy a simple API. Familiarity with Docker and containerization is n...","is recorded. You can attend live or watch the recorded version later.Here are the upcoming cohorts:Cohort 18: May 5 - May 22, 2025. 2:00 PM EDTDo not wait for a specific cohort to join the program. You have lifetime access, so you can join any time to lock in the current price.\\"This is one of the best classes I&#x27;ve ever purchased over the internet. Santiago is a terrific teacher. The ability he has to share knowledge is fantastic. I recommend this course. Worth 10x what he&#x27;s charging.\\"Sal DiStefa...","session, you can catch up asynchronously later using the recording.I&#x27;m a complete beginner. Will this program be helpful for me?This program is not an introduction to machine learning.While we&#x27;ll discuss many fundamental ideas behind machine learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the progra...","like Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy, among others. Across these projects, I learned what it takes to build reliable and scalable software that works.I started this program in March 2023, and since then, thousands of students have successfully graduated.I can&#x27;t wait to see you in class!Copyright \\u00a9 2025 Tideily LLC.All rights reserved."]],["color",{"type":"ndarray","array":["#999","#999","#999","#999","#999","#999","#999","#999","#999","#999"],"shape":[10],"dtype":"object","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1277","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1278"}}},"glyph":{"type":"object","name":"Scatter","id":"p1273","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.7},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1274","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1275","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1244","attributes":{"logo":"grey","tools":[{"type":"object","name":"HoverTool","id":"p1259","attributes":{"renderers":"auto","tooltips":"\\n    &lt;div style=\\"width:400px;\\"&gt;\\n    &lt;b&gt;Document id:&lt;/b&gt; @id &lt;br&gt;\\n    &lt;b&gt;Topic:&lt;/b&gt; @topic &lt;br&gt;\\n    &lt;b&gt;Document Content:&lt;/b&gt; @content\\n    &lt;/div&gt;\\n    "}},{"type":"object","name":"PanTool","id":"p1260"},{"type":"object","name":"WheelZoomTool","id":"p1261","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1262","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1263","attributes":{"syncable":false,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"ResetTool","id":"p1268"},{"type":"object","name":"SaveTool","id":"p1269"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1254","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1255","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1256"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1257"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1249","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1250","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1251"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1252"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1253","attributes":{"axis":{"id":"p1249"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1258","attributes":{"dimension":1,"axis":{"id":"p1254"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Legend","id":"p1279","attributes":{"title":"Knowledge Base Tospics","title_text_color":"#B1B1B1","title_text_font_style":"bold","border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1280","attributes":{"label":{"type":"value","value":"Others"},"renderers":[{"id":"p1276"}],"index":0}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}}},{"type":"object","name":"TabPanel","id":"p1343","attributes":{"title":"Failures","child":{"type":"object","name":"Figure","id":"p1286","attributes":{"sizing_mode":"stretch_width","x_range":{"type":"object","name":"Range1d","id":"p1295","attributes":{"start":-11.303438067436218,"end":-5.573691368103027}},"y_range":{"type":"object","name":"Range1d","id":"p1296","attributes":{"start":-20.537851333618164,"end":-15.850442886352539}},"x_scale":{"type":"object","name":"LinearScale","id":"p1297"},"y_scale":{"type":"object","name":"LinearScale","id":"p1298"},"title":{"type":"object","name":"Title","id":"p1293","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1325","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1282","attributes":{"selected":{"type":"object","name":"Selection","id":"p1283","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1284"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"VkUhwU/zK8HdK/7AEwj1wAvlDsEvfhPBsxMywci0IME2ch7BihELwQvlDsEvfhPB3Sv+wIoRC8ETCPXAVkUhwci0IMFP8yvBNnIewbMTMsHdK/7AyLQgwRMI9cAvfhPBT/MrwYoRC8GzEzLBC+UOwTZyHsFWRSHBNnIewU/zK8HItCDBVkUhwd0r/sATCPXAsxMywYoRC8EvfhPBC+UOwRMI9cDdK/7AL34TwbMTMsE2ch7BC+UOwVZFIcGKEQvBT/Mrwci0IME2ch7BsxMywS9+E8GKEQvBVkUhwci0IMETCPXAT/Mrwd0r/sAL5Q7B"},"shape":[60],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"rQ2FwYjkl8Hv6JPBrVqbwR7fiMGOy5LBBZOKwVZijsFvDprBjQ2ewR7fiMGOy5LB7+iTwY0NnsGtWpvBrQ2FwVZijsGI5JfBbw6awQWTisHv6JPBVmKOwa1am8GOy5LBiOSXwY0NnsEFk4rBHt+IwW8OmsGtDYXBbw6awYjkl8FWYo7BrQ2Fwe/ok8GtWpvBBZOKwY0NnsGOy5LBHt+Iwa1am8Hv6JPBjsuSwQWTisFvDprBHt+Iwa0NhcGNDZ7BiOSXwVZijsFvDprBBZOKwY7LksGNDZ7BrQ2FwVZijsGtWpvBiOSXwe/ok8Ee34jB"},"shape":[60],"dtype":"float32","order":"little"}],["topic",["Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others"]],["correctness",[true,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,true,true,true,true,false,false,true,false,false,true,true,false,false,true,true,true,false,true,true,true,true,true,true,true,true,true,false,true,true,true,true,false,false,false,false,false,true,false,true,false,false]],["questions",["What should I do if I can&#x27;t attend a live session of the program?","When did the program mentioned in the context start?","What topics are covered on Day 6 of the course?","What will participants learn about handling model drift on Day 5?","What are the prerequisites to succeed in the Machine Learning School program?","What is the cost of the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; course?","What does &#x27;lifetime access&#x27; mean in the context of the machine learning program?","Who is the Machine Learning program designed for?","What is included in the program that makes it unique?","What topics are covered on Day 2 of the Machine Learning School sessions?","Considering the Machine Learning School program, what specific prerequisites should a participant meet, including technical skills and time commitment, to ensure success, and are there any optional skills that could be beneficial although not mandatory?","Under the condition that I am interested in the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; course, what would be the financial investment required for enrollment?","What specific skills and methodologies will be covered on Day 6 of the course, particularly focusing on the automation of the end-to-end model lifecycle and strategies to prevent catastrophic forgetting, under the condition that these skills are applicable to real-world production environments?","On the first day of the Machine Learning School sessions, what specific concepts and techniques are taught, and are there any prerequisites or foundational knowledge required to fully grasp these topics?","Could you detail the specific subjects and methodologies that are discussed on Day 4 of the Machine Learning School curriculum, particularly focusing on the techniques for serving model predictions effectively, and any constraints or considerations that are emphasized during this day?","If I am unable to participate in a live session of the program due to unforeseen circumstances, what steps should I take to ensure I do not miss out on any content or information?","For whom is the Machine Learning School program specifically tailored, considering the need for a hands-on approach and real-world problem-solving skills?","Could you specify the exact month and year when the program, as described in the context, was initiated, considering that it has already seen thousands of students graduate?","Could you enumerate certain distinctive characteristics or elements of the machine learning program as described in the context, while considering any limitations or conditions that might apply?","In the context of the machine learning program, under what conditions does &#x27;lifetime access&#x27; allow you to benefit from all past, present, and future cohorts without additional payments?","Considering the focus on building resilient models that adapt to distribution shifts, what specific techniques related to testing models in production will be covered on Day 6?","Considering the weekly office hours for addressing open questions and connecting with peers, who is the Machine Learning School program specifically designed for?","Considering the unique aspects of the Machine Learning School program, such as the focus on real-world application and system deployment, what specific topics are covered on Day 4 that address these themes?","Could you provide the enrollment fee for the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; course if I plan to join the program starting in March 2023?","Could you provide the starting date for the program that focuses on building continual learning systems and includes code walkthroughs, as described in the context?","Considering the program is designed for individuals aiming to solve real-world problems using Machine Learning and Artificial Intelligence, what specific topics are covered on Day 1 of the Machine Learning School sessions that cater to this goal?","Considering the program&#x27;s emphasis on real-world application and system deployment, who is the instructor of the machine learning program, and what relevant experience does he bring to ensure these practical teachings are effectively conveyed?","Considering the high-profile companies like Disney and IBM that are associated with the Machine Learning School, what specific prerequisites should a prospective student meet to ensure success in the program?","Considering the context of ensuring accessibility and inclusivity, what is one unique feature of the machine learning program that supports diverse participation?","If I am unable to attend a live session of the program due to unforeseen circumstances, what options do I have to catch up on the material covered during that session?","Hi, I&#x27;m considering enrolling and I&#x27;m really interested in the hands-on experience aspect. Could you tell me what features the machine learning program offers, particularly in terms of practical application and real-world examples?","Hi, I&#x27;m considering enrolling in the Machine Learning School after hearing about its success stories. Could you tell me when the program started?","Hi, I&#x27;m a software engineer interested in practical AI applications. Could you tell me who the Machine Learning program is designed for?","Hi, I&#x27;m trying to balance my busy work schedule with Santiago&#x27;s machine learning course. What should I do if I can&#x27;t attend a live session of the program?","Hi, I&#x27;m preparing for an internship and was curious about what participants will learn on Day 6 of the Machine Learning School, especially regarding building continual learning systems?","Hi, I&#x27;m trying to deepen my understanding of model deployment and monitoring. Could you tell me what participants will learn about on Day 4 of the Machine Learning School program?","Hello, as a software developer eager to enhance my machine learning skills, I&#x27;m curious about what &#x27;lifetime access&#x27; entails in your program. Could you explain it to me?","Hi, as a data scientist looking to improve my skills in pitching and structuring machine learning projects, could you tell me what topics are covered on Day 1 of the Machine Learning School?","Hi, I&#x27;m trying to decide between taking the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; course and saving for my upcoming vacation. Could you tell me how much the course costs?","Hi, I&#x27;m planning to enroll in the Machine Learning program and want to make sure I&#x27;m well-prepared. Could you tell me what the prerequisites are for succeeding in the program?","What topics are covered on Day 4 of the Machine Learning School program and what will participants learn about on Day 5 regarding model monitoring?","What are some techniques covered in the Machine Learning School for building resilient models and what does it teach about continual learning systems?","What is the focus of the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; course and when is the next cohort scheduled?","Is the machine learning program suitable for complete beginners and what does &#x27;lifetime access&#x27; mean in this context?","What are the unique features of the machine learning program mentioned in the context and how does it help participants with system deployment?","What are the prerequisites to succeed in the Machine Learning School program and how is the schedule structured for the upcoming cohorts?","What are the upcoming dates for the Machine Learning School&#x27;s Cohort 18 and what should I do if I can&#x27;t attend a live session of the program?","What topics are covered on Day 1 and Day 2 of the Machine Learning School&#x27;s sessions?","When did the program mentioned in the context start and what is the name of the company that holds the copyright for the program?","What opportunities do office hours provide in the Machine Learning School program and who is the program designed for?","What makes it stand out?","What does that mean?","What is the cost?","What will they learn on that day?","What is the duration of that?","Who is it designed for?","What are they?","When did it begin?","What will you learn about then?","What are they?"]],["agent_answer",["Every live session is recorded, so if you can&#x27;t attend a live session, you can catch up asynchronously later by watching the recording.","The program mentioned in the context started in March 2023.","How To Build Continual Learning Systems","Participants will learn how to handle edge cases and outliers, address feedback loops, and detect distribution shifts like covariate shift, label shift, and concept drift on Day 5.","The prerequisites to succeed in the Machine Learning School program are:\\n\\n1. Not being afraid of writing code, especially Python.\\n2. Being familiar with basic machine learning terminology.\\n3. Having a basic understanding of cloud services and how to build and deploy a simple API.\\n4. Being ready to put in the work and commit the necessary time to succeed.","The cost of the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; course is $500.","Lifetime access in the context of the machine learning program means that once you pay to join the program, you will have immediate access to every past, present, and future cohort. This allows students to benefit from updates and improvements in each new iteration of the program without having to pay again. It also removes the pressure of having to complete the program within a specific time frame.","The Machine Learning program is designed for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","The program includes 20+ hours of live classes discussing fundamental ideas, best practices for building, evaluating, running, monitoring, and maintaining systems in production, hands-on access to implementation of an end-to-end machine learning system, techniques to build systems once and deploy them anywhere, lifetime access to future cohorts, and membership to a private community for collaboration.","On Day 2 of the Machine Learning School sessions, the topics covered include data cleaning, feature engineering, preprocessing data through vectorization, normalization, and imputation, selecting the best model for a problem, building an end-to-end training pipeline iteratively, and an introduction to distributed training to scale model training using data and model parallelism.","The specific prerequisites for success in the Machine Learning School program include:\\n1. Not being afraid of writing code (experience with Python or any other language is helpful)\\n2. Familiarity with basic machine learning terminology\\n3. Basic understanding of cloud services and simple API building and deployment\\n4. Willingness to put in the necessary time and effort to succeed\\n\\nOptional skills that could be beneficial (but not mandatory) include familiarity with Docker and containerization.","The financial investment required for enrollment in the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; course is $500.","On Day 6 of the course, specific skills and methodologies that will be covered include automating the end-to-end process of building, deploying, and maintaining a model in production. This includes implementing incremental training, strategies to prevent catastrophic forgetting, avoiding catastrophic forgetting, and using different retraining strategies to keep a model running. Additionally, testing models in production using techniques such as A/B testing, shadow deployments, canary releases, and interleaving experiments will also be covered.","On the first day of the Machine Learning School sessions, specific concepts and techniques taught include how to pitch, sell, and structure a Machine Learning project, how to frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision. \\n\\nPrerequisites or foundational knowledge required to fully grasp these topics include being familiar with basic machine learning terminology like model training, evaluation metrics, and model inference, having a basic understanding of cloud services and how to build and deploy a simple API, and being comfortable with writing code, preferably in Python.","On Day 4 of the Machine Learning School curriculum, the specific subjects and methodologies discussed include versioning and deploying models, dealing with deployment tradeoffs, different strategies for serving predictions, using human-in-the-loop workflows, using cost-sensitivity to improve model performance, pruning, quantization, and knowledge distillation to compress models, and optimize their performance in real-world applications. Emphasis is placed on effectively serving model predictions, considering constraints such as deployment tradeoffs, model performance improvement strategies, model compression techniques, and optimizing model performance in real-world scenarios.","If you are unable to participate in a live session of the program, you can catch up asynchronously later by watching the recorded session.","The Machine Learning School program is specifically tailored for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","The program was initiated in March 2023.","Some distinctive characteristics of the machine learning program described in the context include:\\n1. Live, interactive program with 20+ hours of live classes\\n2. Focus on building production-ready machine learning systems from the ground up\\n3. Hands-on approach for software engineers, data scientists, data engineers, machine learning engineers, etc.\\n4. Covers topics such as pitching, selling, structuring projects, data cleaning, feature engineering, model building, model evaluation, and more\\n5. Includes office hours for further discussions and assistance\\n6. Requires basic coding skills in Python and familiarity with machine learning terminology\\n7. Emphasizes building skills with real-world impact and commitment to succeed\\n8. Offers lifetime access to future cohorts and membership in a private community\\n\\nLimitations or conditions that might apply include:\\n1. Participants must be willing to put in the work and commit the necessary time to succeed\\n2. Basic understanding of cloud services and API deployment is recommended\\n3. Familiarity with Docker and containerization is helpful but not required\\n4. Not suitable for complete beginners in coding or machine learning\\n5. Limited to a specific cohort schedule with live sessions on specific days","Under the condition that you only pay once to join the program, you can get immediate access to every past, present, and future cohort without any additional payments.","The specific techniques related to testing models in production that will be covered on Day 6 include A/B testing, shadow deployments, canary releases, and interleaving experiments.","The Machine Learning School program is specifically designed for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","On Day 4 of the Machine Learning School program, the specific topics covered include how to version and deploy models, deal with deployment tradeoffs, different strategies for serving predictions, using human-in-the-loop workflows, and using cost-sensitivity to improve model performance. Additionally, participants will learn about pruning, quantization, and knowledge distillation to compress models and optimize their performance in real-world applications.","I don&#x27;t know.","I don&#x27;t know.","On Day 1 of the Machine Learning School sessions, specific topics covered include how to pitch, sell, and structure a Machine Learning project, how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision. These topics are aimed at helping individuals understand the initial steps required to tackle real-world problems using Machine Learning and Artificial Intelligence.","The instructor of the machine learning program is Santiago. He is a machine learning engineer with three decades of experience building and scaling enterprise software and machine learning systems.","The specific prerequisites for success in the program include:\\n- Not being afraid of writing code, especially in Python\\n- Being familiar with basic machine learning terminology\\n- Having a basic understanding of cloud services and how to build and deploy a simple API\\n- Being ready to put in the work and commit the time necessary to succeed","One unique feature of the machine learning program that supports diverse participation is the lifetime access to every future cohort and membership to a private community where participants can collaborate with thousands of people from different backgrounds.","If you are unable to attend a live session of the program, you can catch up asynchronously later by watching the recorded session.","The machine learning program offers hands-on access and a complete walkthrough of the implementation of an end-to-end machine learning system built using open-source tools. It also provides best practices to tackle challenges engineers face when building, evaluating, running, monitoring, and maintaining systems in production. Additionally, it teaches how to build systems once and deploy them anywhere using popular techniques in the field.","I don&#x27;t know.","The Machine Learning program is designed for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","Every live session is recorded, so if you can&#x27;t attend a live session, you can watch the recorded version later at your convenience.","Participants will learn how to automate the end-to-end process of building, deploying, and maintaining a model in production on Day 6 of the Machine Learning School. They will learn how to implement incremental training, avoid catastrophic forgetting, and use different retraining strategies to keep a model running. Additionally, they will learn how to test models in production using A/B testing, shadow deployments, canary releases, and interleaving experiments.","On Day 4 of the Machine Learning School program, participants will learn how to serve model predictions in a clever way. They will learn how to version and deploy models, deal with deployment tradeoffs, serve predictions using different strategies, improve model performance using cost-sensitivity, and compress models for optimization in real-world applications.","Answer: Lifetime access in the program means that you only pay once to join and then have immediate access to every past, present, and future cohort. You can benefit from updates and improvements in the program by joining later cohorts without any pressure to complete it within a specific timeframe.","On Day 1 of the Machine Learning School, topics covered include learning how to pitch, sell, and structure a machine learning project, how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.","The course costs $500.","To succeed in the Machine Learning program, it is recommended that you are not afraid of writing code, have some familiarity with basic machine learning terminology, understand cloud services and how to build and deploy a simple API, and are ready to put in the work and commit the necessary time to succeed. Familiarity with Python and experience with any other programming language would be beneficial.","On Day 4 of the Machine Learning School program, participants will learn about how to serve model predictions in a clever way, including versioning and deploying models, dealing with deployment tradeoffs, serving predictions using different strategies, and optimizing model performance. On Day 5, participants will learn how to monitor a model, specifically how to handle edge cases and outliers, address feedback loops, and detect distribution shifts like covariate shift, label shift, and concept drift.","Some techniques covered in the Machine Learning School for building resilient models include adversarial validation, monitoring models in production, and techniques to adapt to distribution shifts. \\n\\nRegarding continual learning systems, the program teaches about automating the end-to-end process of building, deploying, and maintaining a model in production. It covers incremental training, avoiding catastrophic forgetting, retraining strategies, testing models in production using A/B testing, shadow deployments, canary releases, and interleaving experiments.","The focus of the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; course is to help participants build production-ready machine learning systems from the ground up. The next cohort is scheduled for May 5 - 22, 2025.","The machine learning program is not suitable for complete beginners as it is not an introduction to machine learning. &#x27;Lifetime access&#x27; means that once you pay to join the program, you will have immediate access to every past, present, and future cohort without any time limitations.","The unique features of the machine learning program mentioned in the context are:\\n1. 20+ hours of live classes discussing fundamental ideas of building systems that work in the real world.\\n2. Best practices to tackle significant challenges faced by engineers when building, evaluating, running, monitoring, and maintaining systems in production.\\n3. Hands-on access and complete walkthrough of implementing an end-to-end machine learning system using open-source tools.\\n4. Learning how to build systems once and deploy them anywhere using popular techniques in the field.\\n5. Lifetime access to every future cohort and membership to a private community for collaboration.\\n\\nThe program helps participants with system deployment by teaching them best practices, providing hands-on experience in implementing an end-to-end system, and ensuring they can deploy the systems they build anywhere using popular techniques.","The prerequisites to succeed in the Machine Learning School program include:\\n- Being comfortable with writing code, particularly in Python.\\n- Familiarity with basic machine learning terminology.\\n- Basic understanding of cloud services and how to build and deploy a simple API.\\n- Willingness to commit the time necessary to succeed.\\n\\nThe schedule for the upcoming cohorts includes:\\n- Six live sessions plus office hours over three weeks.\\n- Live sessions on Mondays and Thursdays.\\n- Office hours on Wednesdays.\\n\\nDuring office hours, participants can ask questions, discuss relevant topics, and connect with other students in the cohort.","The upcoming dates for Machine Learning School&#x27;s Cohort 18 are May 5 - May 22, 2025, at 2:00 PM EDT. If you can&#x27;t attend a live session of the program, you can watch the recorded version later to catch up asynchronously.","On Day 1, the topics covered include pitching, selling, and structuring a machine learning project, approaching new projects, framing complex problems, asking the right questions during discovery, dealing with selection bias, and approaching data collection and labeling. On Day 2, the topics covered include data cleaning, feature engineering, data preprocessing through vectorization, normalization, and imputation, selecting the best model for a problem, building an end-to-end training pipeline iteratively, and an introduction to distributed training.","The program mentioned in the context started in March 2023 and the company that holds the copyright for the program is Tideily LLC.","Office hours in the Machine Learning School program provide opportunities to ask open questions, discuss relevant topics, and receive help with any challenges faced. It also allows for connecting with other students in the cohort, sharing insights, and discussing projects or interests.\\n\\nThe program is designed for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","This program stands out because it provides hands-on access and a complete walkthrough of building an end-to-end machine learning system using open-source tools, as well as offering lifetime access to future cohorts and a membership to a private community for collaboration.","I don&#x27;t know.","I don&#x27;t know.","On day 5, they will learn how to monitor a model, handle edge cases and outliers, address feedback loops, and detect distribution shifts like covariate shift, label shift, and concept drift.","The program lasts for three weeks, with live sessions or recording available to attend for a minimum of 4 hours every week. Additional time of 2-4 hours is needed if going through the codebase.","This program is designed for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","The document mentions various companies such as Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy.","The program began in March 2023.","You will learn about building, evaluating, running, monitoring, and maintaining machine learning systems in production, as well as techniques for serving model predictions, model monitoring, and handling various challenges in real-world scenarios.","Based on the context provided, \\"they\\" refers to the companies like Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy mentioned in the text."]],["reference_answer",["Every live session is recorded. If you can&#x27;t attend a live session, you can watch the recorded version later.","The program started in March 2023.","On Day 6, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different retraining strategies to keep a model running. Additionally, you&#x27;ll learn how to test models in production using A/B testing, shadow deployments, canary releases, and interleaving experiments.","Participants will learn how to handle edge cases and outliers, address feedback loops, and detect distribution shifts like covariate shift, label shift, and concept drift.","You are not afraid of writing code. We&#x27;ll use Python, but you&#x27;ll be fine if you have experience with any other language. You are familiar with basic machine learning terminology, like model training, evaluation metrics, and model inference. You don&#x27;t have to be an expert, but this won&#x27;t be an introductory class. You have a basic understanding of cloud services and how to build and deploy a simple API. Familiarity with Docker and containerization is not required but a helpful skill to have. You are ready to put in the work and commit the time necessary to succeed.","$500","You only pay once to join the program and get immediate access to every past, present, and future cohort. Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates. The lifetime access removes any pressure from having to complete the program when life gets in the way.","This program is for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","The program includes 20+ hours of live classes, best practices for building and maintaining systems, hands-on access to an end-to-end machine learning system, techniques for deploying systems, lifetime access to future cohorts, and membership to a private community.","On Day 2, you&#x27;ll explore data cleaning and feature engineering, learn how to preprocess data through vectorization, normalization, and imputation, and discover strategies for selecting the best model for any given problem. You&#x27;ll learn how to iteratively build an end-to-end training pipeline, and get an introduction to distributed training to scale model training using data and model parallelism.","The prerequisites to succeed in the program are: not being afraid of writing code (experience with Python or any other language is fine), familiarity with basic machine learning terminology like model training, evaluation metrics, and model inference, a basic understanding of cloud services and how to build and deploy a simple API, and readiness to put in the work and commit the time necessary to succeed.","$500","On Day 6, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different retraining strategies to keep a model running. Additionally, you&#x27;ll learn how to test models in production using A/B testing, shadow deployments, canary releases, and interleaving experiments.","On Day 1, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project, approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.","On Day 4, you&#x27;ll learn how to version and deploy models, deal with deployment tradeoffs, serve predictions using different strategies, use human-in-the-loop workflows, and apply cost-sensitivity to improve model performance. Additionally, you&#x27;ll learn about pruning, quantization, and knowledge distillation to compress models and optimize their performance in real-world applications.","Every live session is recorded, so if you can&#x27;t attend a live session, you can watch the recorded version later.","This program is designed for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","The program started in March 2023.","The program includes 20+ hours of live classes, best practices for building and maintaining systems, hands-on access to an end-to-end machine learning system, techniques for deploying systems anywhere, lifetime access to future cohorts, and membership to a private community.","You only pay once to join the program and get immediate access to every past, present, and future cohort. Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates. The lifetime access removes any pressure from having to complete the program when life gets in the way.","You&#x27;ll learn how to test models in production using A/B testing, shadow deployments, canary releases, and interleaving experiments.","This program is designed for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","On Day 4, you&#x27;ll learn how to version and deploy models, deal with deployment tradeoffs, use different strategies for serving predictions, implement human-in-the-loop workflows, and use cost-sensitivity to improve model performance. Additionally, you&#x27;ll learn about pruning, quantization, and knowledge distillation to compress models and optimize their performance in real-world applications.","$500","The program started in March 2023.","On Day 1, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project, approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.","The instructor of the program is Santiago, a machine learning engineer with three decades of experience building and scaling enterprise software and machine learning systems. From 2009 to 2023, he built systems for companies like Disney.","The prerequisites include not being afraid of writing code (Python is used, but experience with any language is fine), familiarity with basic machine learning terminology (like model training, evaluation metrics, and model inference), a basic understanding of cloud services and how to build and deploy a simple API, and readiness to commit the necessary time and effort. Familiarity with Docker and containerization is helpful but not required.","You&#x27;ll get lifetime access to every future cohort and a membership to a private community where you can collaborate with thousands of people from different backgrounds.","Every live session is recorded. If you can&#x27;t attend a live session, you can watch the recorded version later.","The program includes 20+ hours of live classes, best practices for building and maintaining systems, hands-on access to an end-to-end machine learning system, techniques to deploy systems anywhere, lifetime access to future cohorts, and membership to a private community.","The program started in March 2023.","This program is for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","Every live session is recorded. If you can&#x27;t attend a live session, you can watch the recorded version later.","On Day 6, participants will learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. They will learn how to implement incremental training, avoid catastrophic forgetting, and use different retraining strategies to keep a model running. Additionally, they will learn how to test models in production using A/B testing, shadow deployments, canary releases, and interleaving experiments.","On Day 4, participants will learn how to version and deploy models, deal with deployment tradeoffs, serve predictions using different strategies, use human-in-the-loop workflows, and apply cost-sensitivity to improve model performance. They will also learn about pruning, quantization, and knowledge distillation to compress models and optimize their performance in real-world applications.","You only pay once to join the program and get immediate access to every past, present, and future cohort. Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates. The lifetime access removes any pressure from having to complete the program when life gets in the way.","On Day 1, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project, approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.","$500","You are not afraid of writing code, familiar with basic machine learning terminology, have a basic understanding of cloud services and how to build and deploy a simple API, and are ready to commit the necessary time and effort.","On Day 4, you&#x27;ll learn how to version and deploy models, deal with deployment tradeoffs, and serve predictions using strategies like human-in-the-loop workflows and cost-sensitivity, along with pruning, quantization, and knowledge distillation to compress models and optimize their performance. On Day 5, participants will learn how to handle edge cases and outliers, address feedback loops, and detect distribution shifts such as covariate shift, label shift, and concept drift.","The Machine Learning School covers techniques such as adversarial validation and strategies for monitoring models in production to build resilient models that adapt to distribution shifts. Additionally, it teaches about continual learning systems, including automating the end-to-end process of building, deploying, and maintaining a model in production, implementing incremental training, avoiding catastrophic forgetting, and using different retraining strategies.","The course is a live, interactive program designed to help participants build production-ready machine learning systems from the ground up, focusing on solving real-world problems, and the next cohort is scheduled for May 5 - 22, 2025.","This program is not an introduction to machine learning and might be too fast-paced for complete beginners, but &#x27;lifetime access&#x27; means you pay once to join and gain access to all cohorts, past, present, and future, allowing you to benefit from updates without the pressure to complete it immediately.","The program offers 20+ hours of live classes discussing fundamental ideas of building real-world systems, best practices for significant challenges in production systems, hands-on access to an end-to-end machine learning system implementation, and lifetime access to future cohorts and a private community. It also teaches participants how to build systems once and deploy them anywhere using some of the most popular techniques in the field.","To succeed in the program, you should not be afraid of writing code, have familiarity with basic machine learning terminology, and possess a basic understanding of cloud services and API deployment. Experience with Docker and containerization is helpful but not required. Each iteration of the cohort consists of six live sessions plus office hours over three weeks, with live sessions on Mondays and Thursdays, and office hours on Wednesdays. Every session is recorded.","Cohort 18 is scheduled from May 5 to May 22, 2025, at 2:00 PM EDT, and if you can&#x27;t attend a live session, every session is recorded, so you can watch the recorded version later.","On Day 1, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project, approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision. On Day 2, participants will explore data cleaning and feature engineering, learn how to preprocess data through vectorization, normalization, and imputation, discover strategies for selecting the best model for any given problem, iteratively build an end-to-end training pipeline, and get an introduction to distributed training to scale model training using data and model parallelism.","The program started in March 2023 and the company that holds the copyright for the program is Tideily LLC.","Office hours provide an opportunity to answer any open questions, discuss relevant topics, help with challenges, connect with other students, share insights, and talk about projects or passions. The program is designed for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","The program includes 20+ hours of live classes, best practices for building and maintaining systems, hands-on access to an end-to-end machine learning system, techniques for deploying systems anywhere, lifetime access to future cohorts, and membership to a private community.","You only pay once to join the program and get immediate access to every past, present, and future cohort. The lifetime access removes any pressure from having to complete the program when life gets in the way.","$500","On Day 1, participants will learn how to pitch, sell, and structure a Machine Learning project, approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.","The program lasts for three weeks.","This program is for software engineers, data scientists, data engineers, data analysts, machine learning engineers, technical managers, and anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.","On Day 4, you&#x27;ll learn how to version and deploy models, deal with deployment tradeoffs, serve predictions using different strategies, use human-in-the-loop workflows, and apply cost-sensitivity to improve model performance. Additionally, you&#x27;ll learn about pruning, quantization, and knowledge distillation to compress models and optimize their performance in real-world applications.","The program started in March 2023.","In the session on Day 6, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different retraining strategies to keep a model running. Additionally, you&#x27;ll learn how to test models in production using A/B testing, shadow deployments, canary releases, and interleaving experiments.","You are not afraid of writing code, familiar with basic machine learning terminology, have a basic understanding of cloud services and how to build and deploy a simple API, and are ready to put in the work and commit the time necessary to succeed."]],["id",[7,9,4,3,6,0,8,5,1,2,6,0,4,2,3,7,5,9,1,8,4,5,3,0,9,2,8,6,1,7,1,9,5,7,4,3,8,2,0,6,3,4,0,8,1,6,7,2,9,5,1,8,0,2,7,5,3,9,4,6]],["content",["is recorded. You can attend live or watch the recorded version later.Here are the upcoming cohorts:Cohort 18: May 5 - May 22, 2025. 2:00 PM EDTDo not wait for a specific cohort to join the program. You have lifetime access, so you can join any time to lock in the current price.\\"This is one of the best classes I&#x27;ve ever purchased over the internet. Santiago is a terrific teacher. The ability he has to share knowledge is fantastic. I recommend this course. Worth 10x what he&#x27;s charging.\\"Sal DiStefa...","like Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy, among others. Across these projects, I learned what it takes to build reliable and scalable software that works.I started this program in March 2023, and since then, thousands of students have successfully graduated.I can&#x27;t wait to see you in class!Copyright \\u00a9 2025 Tideily LLC.All rights reserved.","drift. You&#x27;ll learn how to use adversarial validation and explore strategies for monitoring models in production. Finally, you&#x27;ll learn different techniques to build resilient models that adapt to distribution shifts.Day 6 - How To Build Continual Learning SystemsIn this session, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different ret...","backtesting, invariance, and behavioral testing. You&#x27;ll learn how to frame evaluation metrics in the context of business goals and ensure models work in real-world scenarios. Aditionally, you&#x27;ll learn to prevent data leakages, test for fairness, perform error analysis, and work with imbalanced data.Day 4 - How To Serve Model Predictions (In A Clever Way)In this session, you&#x27;ll learn how to version and deploy models and deal with deployment tradeoffs. You&#x27;ll learn different strategies for serving...","are the prerequisites to succeed in the program:You are not afraid of writing code. We&#x27;ll use Python, but you&#x27;ll be fine if you have experience with any other language.You are familiar with basic machine learning terminology, like model training, evaluation metrics, and model inference. You don&#x27;t have to be an expert, but this won&#x27;t be an introductory class.You have a basic understanding of cloud services and how to build and deploy a simple API. Familiarity with Docker and containerization is n...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems (That Don&#x27;t Suck)A live, interactive program that&#x27;ll help you build production-ready systems from the ground up.This program is for anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.This practical, hands-on course will teach you the skills you need for building p...","session, you can catch up asynchronously later using the recording.I&#x27;m a complete beginner. Will this program be helpful for me?This program is not an introduction to machine learning.While we&#x27;ll discuss many fundamental ideas behind machine learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the progra...","to accommodate your needs.Office HoursEvery week, we&#x27;ll meet during office hours to answer any open questions, discuss relevant topics, and help you with any challenges you may be facing. This is also a great opportunity to connect with other students in your cohort, share insights, and talk about anything you are building or are passionate about.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one o...","where you&#x27;ll learn from years of experience and real-world examples.Here is a summary of what makes this program unique:You&#x27;ll join 20+ hours of live classes to discuss the fundamental ideas of building systems that work in the real world.You&#x27;ll learn best practices to tackle the most significant challenges engineers face when building, evaluating, running, monitoring, and maintaining systems in production.You&#x27;ll get hands-on access and a complete walkthrough of the implementation of an end-to-e...","software for over 30 years in the industry.Day 1 - How To Start (Almost) Any ProjectIn this session, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project. You&#x27;ll learn how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.Day 2 - How To Build A Model (That Works)In this session, you&#x27;ll explore data cleaning and feature engin...","are the prerequisites to succeed in the program:You are not afraid of writing code. We&#x27;ll use Python, but you&#x27;ll be fine if you have experience with any other language.You are familiar with basic machine learning terminology, like model training, evaluation metrics, and model inference. You don&#x27;t have to be an expert, but this won&#x27;t be an introductory class.You have a basic understanding of cloud services and how to build and deploy a simple API. Familiarity with Docker and containerization is n...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems (That Don&#x27;t Suck)A live, interactive program that&#x27;ll help you build production-ready systems from the ground up.This program is for anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.This practical, hands-on course will teach you the skills you need for building p...","drift. You&#x27;ll learn how to use adversarial validation and explore strategies for monitoring models in production. Finally, you&#x27;ll learn different techniques to build resilient models that adapt to distribution shifts.Day 6 - How To Build Continual Learning SystemsIn this session, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different ret...","software for over 30 years in the industry.Day 1 - How To Start (Almost) Any ProjectIn this session, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project. You&#x27;ll learn how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.Day 2 - How To Build A Model (That Works)In this session, you&#x27;ll explore data cleaning and feature engin...","backtesting, invariance, and behavioral testing. You&#x27;ll learn how to frame evaluation metrics in the context of business goals and ensure models work in real-world scenarios. Aditionally, you&#x27;ll learn to prevent data leakages, test for fairness, perform error analysis, and work with imbalanced data.Day 4 - How To Serve Model Predictions (In A Clever Way)In this session, you&#x27;ll learn how to version and deploy models and deal with deployment tradeoffs. You&#x27;ll learn different strategies for serving...","is recorded. You can attend live or watch the recorded version later.Here are the upcoming cohorts:Cohort 18: May 5 - May 22, 2025. 2:00 PM EDTDo not wait for a specific cohort to join the program. You have lifetime access, so you can join any time to lock in the current price.\\"This is one of the best classes I&#x27;ve ever purchased over the internet. Santiago is a terrific teacher. The ability he has to share knowledge is fantastic. I recommend this course. Worth 10x what he&#x27;s charging.\\"Sal DiStefa...","to accommodate your needs.Office HoursEvery week, we&#x27;ll meet during office hours to answer any open questions, discuss relevant topics, and help you with any challenges you may be facing. This is also a great opportunity to connect with other students in your cohort, share insights, and talk about anything you are building or are passionate about.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one o...","like Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy, among others. Across these projects, I learned what it takes to build reliable and scalable software that works.I started this program in March 2023, and since then, thousands of students have successfully graduated.I can&#x27;t wait to see you in class!Copyright \\u00a9 2025 Tideily LLC.All rights reserved.","where you&#x27;ll learn from years of experience and real-world examples.Here is a summary of what makes this program unique:You&#x27;ll join 20+ hours of live classes to discuss the fundamental ideas of building systems that work in the real world.You&#x27;ll learn best practices to tackle the most significant challenges engineers face when building, evaluating, running, monitoring, and maintaining systems in production.You&#x27;ll get hands-on access and a complete walkthrough of the implementation of an end-to-e...","session, you can catch up asynchronously later using the recording.I&#x27;m a complete beginner. Will this program be helpful for me?This program is not an introduction to machine learning.While we&#x27;ll discuss many fundamental ideas behind machine learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the progra...","drift. You&#x27;ll learn how to use adversarial validation and explore strategies for monitoring models in production. Finally, you&#x27;ll learn different techniques to build resilient models that adapt to distribution shifts.Day 6 - How To Build Continual Learning SystemsIn this session, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different ret...","to accommodate your needs.Office HoursEvery week, we&#x27;ll meet during office hours to answer any open questions, discuss relevant topics, and help you with any challenges you may be facing. This is also a great opportunity to connect with other students in your cohort, share insights, and talk about anything you are building or are passionate about.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one o...","backtesting, invariance, and behavioral testing. You&#x27;ll learn how to frame evaluation metrics in the context of business goals and ensure models work in real-world scenarios. Aditionally, you&#x27;ll learn to prevent data leakages, test for fairness, perform error analysis, and work with imbalanced data.Day 4 - How To Serve Model Predictions (In A Clever Way)In this session, you&#x27;ll learn how to version and deploy models and deal with deployment tradeoffs. You&#x27;ll learn different strategies for serving...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems (That Don&#x27;t Suck)A live, interactive program that&#x27;ll help you build production-ready systems from the ground up.This program is for anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.This practical, hands-on course will teach you the skills you need for building p...","like Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy, among others. Across these projects, I learned what it takes to build reliable and scalable software that works.I started this program in March 2023, and since then, thousands of students have successfully graduated.I can&#x27;t wait to see you in class!Copyright \\u00a9 2025 Tideily LLC.All rights reserved.","software for over 30 years in the industry.Day 1 - How To Start (Almost) Any ProjectIn this session, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project. You&#x27;ll learn how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.Day 2 - How To Build A Model (That Works)In this session, you&#x27;ll explore data cleaning and feature engin...","session, you can catch up asynchronously later using the recording.I&#x27;m a complete beginner. Will this program be helpful for me?This program is not an introduction to machine learning.While we&#x27;ll discuss many fundamental ideas behind machine learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the progra...","are the prerequisites to succeed in the program:You are not afraid of writing code. We&#x27;ll use Python, but you&#x27;ll be fine if you have experience with any other language.You are familiar with basic machine learning terminology, like model training, evaluation metrics, and model inference. You don&#x27;t have to be an expert, but this won&#x27;t be an introductory class.You have a basic understanding of cloud services and how to build and deploy a simple API. Familiarity with Docker and containerization is n...","where you&#x27;ll learn from years of experience and real-world examples.Here is a summary of what makes this program unique:You&#x27;ll join 20+ hours of live classes to discuss the fundamental ideas of building systems that work in the real world.You&#x27;ll learn best practices to tackle the most significant challenges engineers face when building, evaluating, running, monitoring, and maintaining systems in production.You&#x27;ll get hands-on access and a complete walkthrough of the implementation of an end-to-e...","is recorded. You can attend live or watch the recorded version later.Here are the upcoming cohorts:Cohort 18: May 5 - May 22, 2025. 2:00 PM EDTDo not wait for a specific cohort to join the program. You have lifetime access, so you can join any time to lock in the current price.\\"This is one of the best classes I&#x27;ve ever purchased over the internet. Santiago is a terrific teacher. The ability he has to share knowledge is fantastic. I recommend this course. Worth 10x what he&#x27;s charging.\\"Sal DiStefa...","where you&#x27;ll learn from years of experience and real-world examples.Here is a summary of what makes this program unique:You&#x27;ll join 20+ hours of live classes to discuss the fundamental ideas of building systems that work in the real world.You&#x27;ll learn best practices to tackle the most significant challenges engineers face when building, evaluating, running, monitoring, and maintaining systems in production.You&#x27;ll get hands-on access and a complete walkthrough of the implementation of an end-to-e...","like Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy, among others. Across these projects, I learned what it takes to build reliable and scalable software that works.I started this program in March 2023, and since then, thousands of students have successfully graduated.I can&#x27;t wait to see you in class!Copyright \\u00a9 2025 Tideily LLC.All rights reserved.","to accommodate your needs.Office HoursEvery week, we&#x27;ll meet during office hours to answer any open questions, discuss relevant topics, and help you with any challenges you may be facing. This is also a great opportunity to connect with other students in your cohort, share insights, and talk about anything you are building or are passionate about.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one o...","is recorded. You can attend live or watch the recorded version later.Here are the upcoming cohorts:Cohort 18: May 5 - May 22, 2025. 2:00 PM EDTDo not wait for a specific cohort to join the program. You have lifetime access, so you can join any time to lock in the current price.\\"This is one of the best classes I&#x27;ve ever purchased over the internet. Santiago is a terrific teacher. The ability he has to share knowledge is fantastic. I recommend this course. Worth 10x what he&#x27;s charging.\\"Sal DiStefa...","drift. You&#x27;ll learn how to use adversarial validation and explore strategies for monitoring models in production. Finally, you&#x27;ll learn different techniques to build resilient models that adapt to distribution shifts.Day 6 - How To Build Continual Learning SystemsIn this session, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different ret...","backtesting, invariance, and behavioral testing. You&#x27;ll learn how to frame evaluation metrics in the context of business goals and ensure models work in real-world scenarios. Aditionally, you&#x27;ll learn to prevent data leakages, test for fairness, perform error analysis, and work with imbalanced data.Day 4 - How To Serve Model Predictions (In A Clever Way)In this session, you&#x27;ll learn how to version and deploy models and deal with deployment tradeoffs. You&#x27;ll learn different strategies for serving...","session, you can catch up asynchronously later using the recording.I&#x27;m a complete beginner. Will this program be helpful for me?This program is not an introduction to machine learning.While we&#x27;ll discuss many fundamental ideas behind machine learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the progra...","software for over 30 years in the industry.Day 1 - How To Start (Almost) Any ProjectIn this session, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project. You&#x27;ll learn how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.Day 2 - How To Build A Model (That Works)In this session, you&#x27;ll explore data cleaning and feature engin...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems (That Don&#x27;t Suck)A live, interactive program that&#x27;ll help you build production-ready systems from the ground up.This program is for anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.This practical, hands-on course will teach you the skills you need for building p...","are the prerequisites to succeed in the program:You are not afraid of writing code. We&#x27;ll use Python, but you&#x27;ll be fine if you have experience with any other language.You are familiar with basic machine learning terminology, like model training, evaluation metrics, and model inference. You don&#x27;t have to be an expert, but this won&#x27;t be an introductory class.You have a basic understanding of cloud services and how to build and deploy a simple API. Familiarity with Docker and containerization is n...","backtesting, invariance, and behavioral testing. You&#x27;ll learn how to frame evaluation metrics in the context of business goals and ensure models work in real-world scenarios. Aditionally, you&#x27;ll learn to prevent data leakages, test for fairness, perform error analysis, and work with imbalanced data.Day 4 - How To Serve Model Predictions (In A Clever Way)In this session, you&#x27;ll learn how to version and deploy models and deal with deployment tradeoffs. You&#x27;ll learn different strategies for serving...","drift. You&#x27;ll learn how to use adversarial validation and explore strategies for monitoring models in production. Finally, you&#x27;ll learn different techniques to build resilient models that adapt to distribution shifts.Day 6 - How To Build Continual Learning SystemsIn this session, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different ret...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems (That Don&#x27;t Suck)A live, interactive program that&#x27;ll help you build production-ready systems from the ground up.This program is for anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.This practical, hands-on course will teach you the skills you need for building p...","session, you can catch up asynchronously later using the recording.I&#x27;m a complete beginner. Will this program be helpful for me?This program is not an introduction to machine learning.While we&#x27;ll discuss many fundamental ideas behind machine learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the progra...","where you&#x27;ll learn from years of experience and real-world examples.Here is a summary of what makes this program unique:You&#x27;ll join 20+ hours of live classes to discuss the fundamental ideas of building systems that work in the real world.You&#x27;ll learn best practices to tackle the most significant challenges engineers face when building, evaluating, running, monitoring, and maintaining systems in production.You&#x27;ll get hands-on access and a complete walkthrough of the implementation of an end-to-e...","are the prerequisites to succeed in the program:You are not afraid of writing code. We&#x27;ll use Python, but you&#x27;ll be fine if you have experience with any other language.You are familiar with basic machine learning terminology, like model training, evaluation metrics, and model inference. You don&#x27;t have to be an expert, but this won&#x27;t be an introductory class.You have a basic understanding of cloud services and how to build and deploy a simple API. Familiarity with Docker and containerization is n...","is recorded. You can attend live or watch the recorded version later.Here are the upcoming cohorts:Cohort 18: May 5 - May 22, 2025. 2:00 PM EDTDo not wait for a specific cohort to join the program. You have lifetime access, so you can join any time to lock in the current price.\\"This is one of the best classes I&#x27;ve ever purchased over the internet. Santiago is a terrific teacher. The ability he has to share knowledge is fantastic. I recommend this course. Worth 10x what he&#x27;s charging.\\"Sal DiStefa...","software for over 30 years in the industry.Day 1 - How To Start (Almost) Any ProjectIn this session, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project. You&#x27;ll learn how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.Day 2 - How To Build A Model (That Works)In this session, you&#x27;ll explore data cleaning and feature engin...","like Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy, among others. Across these projects, I learned what it takes to build reliable and scalable software that works.I started this program in March 2023, and since then, thousands of students have successfully graduated.I can&#x27;t wait to see you in class!Copyright \\u00a9 2025 Tideily LLC.All rights reserved.","to accommodate your needs.Office HoursEvery week, we&#x27;ll meet during office hours to answer any open questions, discuss relevant topics, and help you with any challenges you may be facing. This is also a great opportunity to connect with other students in your cohort, share insights, and talk about anything you are building or are passionate about.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one o...","where you&#x27;ll learn from years of experience and real-world examples.Here is a summary of what makes this program unique:You&#x27;ll join 20+ hours of live classes to discuss the fundamental ideas of building systems that work in the real world.You&#x27;ll learn best practices to tackle the most significant challenges engineers face when building, evaluating, running, monitoring, and maintaining systems in production.You&#x27;ll get hands-on access and a complete walkthrough of the implementation of an end-to-e...","session, you can catch up asynchronously later using the recording.I&#x27;m a complete beginner. Will this program be helpful for me?This program is not an introduction to machine learning.While we&#x27;ll discuss many fundamental ideas behind machine learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the progra...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems (That Don&#x27;t Suck)A live, interactive program that&#x27;ll help you build production-ready systems from the ground up.This program is for anyone who wants to use Machine Learning and Artificial Intelligence to solve real-world problems.This practical, hands-on course will teach you the skills you need for building p...","software for over 30 years in the industry.Day 1 - How To Start (Almost) Any ProjectIn this session, you&#x27;ll learn how to pitch, sell, and structure a Machine Learning project. You&#x27;ll learn how to approach new projects, frame complex problems, ask the right questions during discovery, deal with selection bias, and approach data collection and labeling using active learning and weak supervision.Day 2 - How To Build A Model (That Works)In this session, you&#x27;ll explore data cleaning and feature engin...","is recorded. You can attend live or watch the recorded version later.Here are the upcoming cohorts:Cohort 18: May 5 - May 22, 2025. 2:00 PM EDTDo not wait for a specific cohort to join the program. You have lifetime access, so you can join any time to lock in the current price.\\"This is one of the best classes I&#x27;ve ever purchased over the internet. Santiago is a terrific teacher. The ability he has to share knowledge is fantastic. I recommend this course. Worth 10x what he&#x27;s charging.\\"Sal DiStefa...","to accommodate your needs.Office HoursEvery week, we&#x27;ll meet during office hours to answer any open questions, discuss relevant topics, and help you with any challenges you may be facing. This is also a great opportunity to connect with other students in your cohort, share insights, and talk about anything you are building or are passionate about.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one o...","backtesting, invariance, and behavioral testing. You&#x27;ll learn how to frame evaluation metrics in the context of business goals and ensure models work in real-world scenarios. Aditionally, you&#x27;ll learn to prevent data leakages, test for fairness, perform error analysis, and work with imbalanced data.Day 4 - How To Serve Model Predictions (In A Clever Way)In this session, you&#x27;ll learn how to version and deploy models and deal with deployment tradeoffs. You&#x27;ll learn different strategies for serving...","like Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, HP, and NextEra Energy, among others. Across these projects, I learned what it takes to build reliable and scalable software that works.I started this program in March 2023, and since then, thousands of students have successfully graduated.I can&#x27;t wait to see you in class!Copyright \\u00a9 2025 Tideily LLC.All rights reserved.","drift. You&#x27;ll learn how to use adversarial validation and explore strategies for monitoring models in production. Finally, you&#x27;ll learn different techniques to build resilient models that adapt to distribution shifts.Day 6 - How To Build Continual Learning SystemsIn this session, you&#x27;ll learn how to automate the end-to-end process of building, deploying, and maintaining a model in production. You&#x27;ll learn how to implement incremental training, avoid catastrophic forgetting, and use different ret...","are the prerequisites to succeed in the program:You are not afraid of writing code. We&#x27;ll use Python, but you&#x27;ll be fine if you have experience with any other language.You are familiar with basic machine learning terminology, like model training, evaluation metrics, and model inference. You don&#x27;t have to be an expert, but this won&#x27;t be an introductory class.You have a basic understanding of cloud services and how to build and deploy a simple API. Familiarity with Docker and containerization is n..."]],["color",["#0a980a","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#ba0e0e","#0a980a","#ba0e0e","#ba0e0e","#0a980a","#0a980a","#ba0e0e","#ba0e0e","#0a980a","#0a980a","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#0a980a","#ba0e0e","#0a980a","#ba0e0e","#ba0e0e"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1326","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1327"}}},"glyph":{"type":"object","name":"Scatter","id":"p1322","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.7},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1323","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1324","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1340","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1331","attributes":{"selected":{"type":"object","name":"Selection","id":"p1332","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1333"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"L34TwTZyHsGKEQvBEwj1wN0r/sDItCDBC+UOwVZFIcGzEzLBT/MrwQ=="},"shape":[10],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"jsuSwW8OmsGNDZ7BrVqbwe/ok8FWYo7BHt+Iwa0NhcEFk4rBiOSXwQ=="},"shape":[10],"dtype":"float32","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1341","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1342"}}},"glyph":{"type":"object","name":"Scatter","id":"p1337","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.2}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1338","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1339","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1294","attributes":{"logo":"grey","tools":[{"type":"object","name":"PanTool","id":"p1309"},{"type":"object","name":"WheelZoomTool","id":"p1310","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1311","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1312","attributes":{"syncable":false,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"ResetTool","id":"p1317"},{"type":"object","name":"SaveTool","id":"p1318"},{"type":"object","name":"HoverTool","id":"p1285","attributes":{"renderers":[{"id":"p1325"}],"tooltips":"\\n    &lt;div style=\\"width:400px;\\"&gt;\\n    &lt;b&gt;Document id:&lt;/b&gt; @id &lt;br&gt;\\n    &lt;b&gt;Topic:&lt;/b&gt; @topic &lt;br&gt;\\n    &lt;b&gt;Question:&lt;/b&gt; @questions &lt;br&gt;\\n    &lt;b&gt;agent Answer:&lt;/b&gt; @agent_answer &lt;br&gt;\\n    &lt;b&gt;Reference Answer:&lt;/b&gt; @reference_answer &lt;br&gt;\\n    &lt;b&gt;Correctness:&lt;/b&gt; @correctness &lt;br&gt;\\n    &lt;b&gt;Content:&lt;/b&gt; @content\\n    &lt;/div&gt;\\n    "}}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1304","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1305","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1306"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1307"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1299","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1300","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1301"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1302"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1303","attributes":{"axis":{"id":"p1299"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1308","attributes":{"dimension":1,"axis":{"id":"p1304"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Legend","id":"p1328","attributes":{"title":"Question Correctness","title_text_color":"#B1B1B1","title_text_font_style":"bold","border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1329","attributes":{"label":{"type":"value","value":"False"},"renderers":[{"id":"p1325"}],"index":2}},{"type":"object","name":"LegendItem","id":"p1330","attributes":{"label":{"type":"value","value":"True"},"renderers":[{"id":"p1325"}],"index":0}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}}}],"tabs_location":"below"}}]}}';
+        const render_items = [{"docid":"a4de7740-5767-4d9d-9ffb-37fdbfc9989d","roots":{"p1344":"b5e61790-3cb3-4067-9b53-e48299fb8bbc"},"root_ids":["p1344"]}];
+        root.Bokeh.embed.embed_items(docs_json, render_items);
+        }
+        if (root.Bokeh !== undefined) {
+          embed_document(root);
+        } else {
+          let attempts = 0;
+          const timer = setInterval(function(root) {
+            if (root.Bokeh !== undefined) {
+              clearInterval(timer);
+              embed_document(root);
+            } else {
+              attempts++;
+              if (attempts > 100) {
+                clearInterval(timer);
+                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+              }
+            }
+          }, 10, root)
+        }
+      })(window);
+    });
+  };
+  if (document.readyState != "loading") fn();
+  else document.addEventListener("DOMContentLoaded", fn);
+})();
+    </script>
+
+                <div id="b5e61790-3cb3-4067-9b53-e48299fb8bbc" data-root-id="p1344" style="display: contents;"></div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+
+                <div class="section-title">SELECTED METRICS</div>
+
+                
+
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    function opentab(evt, name) {
+    // Declare all variables
+    let i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(name).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
