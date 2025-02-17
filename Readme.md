@@ -3,6 +3,8 @@
 ## 🌟 Overview
 This project dives into the exciting world of Retrieval-Augmented Generation (RAG) Evaluation ✨ Specifically, I built and evaluated a RAG-powered chatbot designed to answer questions about the Machine Learning School website. The goal? To create a robust knowledge base and generate a test set to assess the chatbot's performance. 🎯
 
+![RAG Evaluation Screenshot](RAG-Evaluation/Screenshot 2025-02-16 at 7.40.03 PM.png)
+
 ## 🧠 Key Learnings
 
 ### 1. Environment Setup 🛠️
@@ -57,7 +59,7 @@ jupyter notebook RAG-Evaluation/notebook.ipynb
 ```
 
 ## 🎯 Conclusion
-This project has been a game-changer in understanding how to build and evaluate RAG applications. By combining web scraping, document processing, and machine learning, we’ve created a chatbot that can handle complex queries with ease. 🧠💡
+This project has been a game-changer in understanding how to build and evaluate RAG applications. By combining web scraping, document processing, and machine learning, I’ve created a chatbot that can handle complex queries with ease. 🧠💡
 
 Future work will focus on refining the chatbot's capabilities and expanding the knowledge base for even better performance. 🚀
 
