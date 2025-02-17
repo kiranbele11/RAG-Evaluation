@@ -3,7 +3,7 @@
 ## 🌟 Overview
 This project dives into the exciting world of Retrieval-Augmented Generation (RAG) Evaluation ✨ Specifically, I built and evaluated a RAG-powered chatbot designed to answer questions about the Machine Learning School website. The goal? To create a robust knowledge base and generate a test set to assess the chatbot's performance. 🎯
 
-![RAG Evaluation Screenshot](RAG-Evaluation/Screenshot 2025-02-16 at 7.40.03 PM.png)
+![RAG Evaluation Screenshot](RAG-Evaluation/Rag_Evaluation.png)
 
 ## 🧠 Key Learnings
 
